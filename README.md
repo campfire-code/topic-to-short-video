@@ -1,3 +1,55 @@
+# 主题一键出短视频（MoneyPrinterTurbo）
+
+> 篝火出品 · 收录于篝火 App 应用区 · 基于开源项目 [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)（MIT）
+
+输入一个主题或关键词，自动写视频文案、配音、配字幕和背景音乐、匹配素材，合成竖屏或横屏的短视频成片。
+
+## 下载与启动
+
+到 [Releases](https://github.com/campfire-code/topic-to-short-video/releases/latest) 下载 `topic-to-short-video_版本号_portable.zip`，解压到一个**路径里没有中文和空格**的文件夹。
+
+- **Windows**：双击「启动（Windows 双击）.bat」。
+- **Mac**：右键「启动（Mac 双击）.command」→「打开」；被拦时到「系统设置 → 隐私与安全性」点「仍要打开」。
+
+第一次启动会自动安装 uv、下载 Python 3.11 和依赖（约 700 MB，几分钟到十几分钟），可选国内镜像。启动后浏览器会自动打开，默认地址 http://127.0.0.1:8501（端口被占用时会自动换成 8502～8599，以窗口里显示的地址为准）。关闭启动窗口即退出。
+
+## 使用前要自己准备
+
+软件本身不带任何密钥，需要在网页界面的「基础设置」里填写（以上游文档为准）：
+
+- **大模型接口密钥（必需）**：用来写文案。上游支持 Kimi / Moonshot、OpenAI、Claude、Gemini、DeepSeek、通义千问、Ollama 等多家，选一家填入密钥即可。
+- **视频素材来源（二选一）**：到 Pexels 或 Pixabay 免费申请素材接口密钥；或者直接上传自己的本地图片和视频。上游另支持 Coverr 以及若干收费的 AI 生成视频接口（可选，按次计费）。
+- **配音**：默认使用 Edge TTS，不需要密钥，需要联网；上游也支持 Azure 等其他语音服务（可选）。
+- **字幕**：默认由配音时间戳生成，不需要显卡。可选改用本地 Whisper 转写，首次使用要下载约 1.6～3 GB 的模型。
+- **显卡**：不是必需的。上游给出的最低配置为 4 核 CPU、4 GB 内存；使用本地 Whisper 或批量生成时，建议 4 GB 以上显存的独立显卡。
+- 视频合成所需的 ffmpeg 由依赖自动提供；如果启动报错找不到 ffmpeg，参见下方上游原文的常见问题。
+
+**说明**
+- 界面语言：支持简体中文等 14 种语言，按已保存的设置和浏览器语言自动选择，没有匹配时默认英文，可在界面里手动切换到中文。
+- 文案、素材和密钥都经过你填写的第三方服务，调用产生的费用由你自己承担。
+- 密钥保存在解压目录下的 `config.toml`，请不要把这个文件发给别人。
+
+## 验收用例
+
+| 操作 | 应得到 |
+|---|---|
+| 双击启动，等待安装完成 | 浏览器打开网页界面，不报错 |
+| 填入大模型密钥与 Pexels 密钥，输入主题「春天的咖啡馆」，点生成 | 几分钟后得到带配音和字幕的 mp4 成片 |
+
+## 和上游的区别
+
+- 仅新增中文说明、双击启动脚本（`campfire/`）和篝火发布流程（`tool.json`、`.github/workflows/release.yml`），软件代码与上游 v1.3.9 一致。
+- 移除了上游的 CI 与镜像发布工作流，它们依赖上游的密钥。
+- 上游另提供 Windows 免安装包（约 880 MB）和 Docker 部署，篝火这里采用更小的启动脚本包，同时支持 Windows 与 Mac。
+
+## 归属与许可证
+
+本仓库由**篝火**整理发布，是篝火 App 应用区收录的开源工具之一。软件全部功能与版权归 [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) 原作者所有，按 MIT 许可证再分发。全部工具目录见 [toolkit-hub](https://github.com/campfire-code/toolkit-hub)。
+
+---
+
+以下为上游原始说明：
+
 <div align="center">
 
 # MoneyPrinterTurbo 💸
