@@ -2,7 +2,7 @@
   "id": "c01",
   "slug": "topic-to-short-video",
   "name": "主题一键出短视频",
-  "version": "1.3.9-campfire.2",
+  "version": "1.3.9-campfire.3",
   "repo": "campfire-code/topic-to-short-video",
   "license": "MIT",
   "delivery": "launcher",

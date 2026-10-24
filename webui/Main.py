@@ -75,16 +75,16 @@ from app.utils import utils
 from app.utils.request_logging import trace_http_call
 
 st.set_page_config(
-    page_title="MoneyPrinterTurbo",
+    page_title="主题一键出短视频",
     page_icon="🤖",
     layout="wide",
     initial_sidebar_state="auto",
     menu_items={
         "Report a bug": "https://github.com/harry0703/MoneyPrinterTurbo/issues",
-        "About": "# MoneyPrinterTurbo\nSimply provide a topic or keyword for a video, and it will "
-        "automatically generate the video copy, video materials, video subtitles, "
-        "and video background music before synthesizing a high-definition short "
-        "video.\n\nhttps://github.com/harry0703/MoneyPrinterTurbo",
+        "About": "# 主题一键出短视频\n只需给出一个主题或关键词，就能自动生成视频文案、视频素材、"
+        "视频字幕和背景音乐，再合成为高清短视频。\n\n"
+        "基于开源项目 MoneyPrinterTurbo（原作者 harry0703，MIT 许可证）："
+        "https://github.com/harry0703/MoneyPrinterTurbo",
     },
 )
 
@@ -1761,13 +1761,13 @@ def _render_brand(available_update: str | None = None):
     st.markdown(
         f"""
         <h1 class="mpt-brand">
-            <span class="mpt-brand__name">MoneyPrinterTurbo</span>
+            <span class="mpt-brand__name">主题一键出短视频</span>
             <a class="mpt-brand__version"
                href="https://github.com/harry0703/MoneyPrinterTurbo"
                target="_blank"
                rel="noopener noreferrer"
-               aria-label="Open MoneyPrinterTurbo on GitHub"
-               title="Open project on GitHub">v{html.escape(str(config.project_version))}</a>
+               aria-label="在 GitHub 打开原项目 MoneyPrinterTurbo"
+               title="基于开源项目 MoneyPrinterTurbo（原作者 harry0703），点击打开原项目">v{html.escape(str(config.project_version))}</a>
             {update_link}
         </h1>
         """,

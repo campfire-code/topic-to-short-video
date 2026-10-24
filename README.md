@@ -41,7 +41,7 @@
 ## 和上游的区别
 
 - 新增中文说明、双击启动脚本（`campfire/`）和篝火发布流程（`tool.json`、`.github/workflows/release.yml`）。
-- 网页界面默认语言固定为简体中文（改动在 `webui/Main.py` 的语言选择处），并补译了中文语言包 `webui/i18n/zh.json` 里残留的英文；其余软件代码与上游 v1.3.9 一致。
+- 网页界面默认语言固定为简体中文（改动在 `webui/Main.py` 的语言选择处），补译了中文语言包 `webui/i18n/zh.json` 里残留的英文，并把页头标题、浏览器标签页标题和「关于」里的产品名改为「主题一键出短视频」（原项目名 MoneyPrinterTurbo 和原作者 harry0703 的致谢保留在页头版本号的悬浮提示和「关于」里）；其余软件代码与上游 v1.3.9 一致。
 - 发布包不带 `README-en.md`、`README-ja.md` 和英文界面截图（`.gitattributes` 里标了 export-ignore）。
 - 移除了上游的 CI 与镜像发布工作流，它们依赖上游的密钥。
 - 上游另提供 Windows 免安装包（约 880 MB）和 Docker 部署，篝火这里采用更小的启动脚本包，同时支持 Windows 与 Mac。
