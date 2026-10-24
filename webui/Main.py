@@ -676,11 +676,12 @@ def _initialize_session_state():
             st.session_state["cross_post_recovery_checked"] = True
 
     saved_ui_language = config.ui.get("language", "")
-    browser_locale = st.context.locale
+    # 篝火：默认固定为简体中文，不再跟随浏览器语言；已在界面里手动保存过的语言仍然优先。
     initial_ui_language = utils.resolve_ui_language(
         saved_language=saved_ui_language,
-        browser_locale=browser_locale,
+        browser_locale=None,
         supported_languages=locales.keys(),
+        default_language="zh",
     )
 
     defaults = {

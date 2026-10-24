@@ -4,6 +4,8 @@
 
 输入一个主题或关键词，自动写视频文案、配音、配字幕和背景音乐、匹配素材，合成竖屏或横屏的短视频成片。
 
+![中文界面](docs/screenshot.png)
+
 ## 下载与启动
 
 到 [Releases](https://github.com/campfire-code/topic-to-short-video/releases/latest) 下载 `topic-to-short-video_版本号_portable.zip`，解压到一个**路径里没有中文和空格**的文件夹。
@@ -25,7 +27,7 @@
 - 视频合成所需的 ffmpeg 由依赖自动提供；如果启动报错找不到 ffmpeg，参见下方上游原文的常见问题。
 
 **说明**
-- 界面语言：支持简体中文等 14 种语言，按已保存的设置和浏览器语言自动选择，没有匹配时默认英文，可在界面里手动切换到中文。
+- 界面语言：默认固定为简体中文，不随浏览器或系统语言变化。右上角的语言下拉框仍可手动切换到其他语言，切换后会记住你的选择。
 - 文案、素材和密钥都经过你填写的第三方服务，调用产生的费用由你自己承担。
 - 密钥保存在解压目录下的 `config.toml`，请不要把这个文件发给别人。
 
@@ -38,7 +40,9 @@
 
 ## 和上游的区别
 
-- 仅新增中文说明、双击启动脚本（`campfire/`）和篝火发布流程（`tool.json`、`.github/workflows/release.yml`），软件代码与上游 v1.3.9 一致。
+- 新增中文说明、双击启动脚本（`campfire/`）和篝火发布流程（`tool.json`、`.github/workflows/release.yml`）。
+- 网页界面默认语言固定为简体中文（改动在 `webui/Main.py` 的语言选择处），并补译了中文语言包 `webui/i18n/zh.json` 里残留的英文；其余软件代码与上游 v1.3.9 一致。
+- 发布包不带 `README-en.md`、`README-ja.md` 和英文界面截图（`.gitattributes` 里标了 export-ignore）。
 - 移除了上游的 CI 与镜像发布工作流，它们依赖上游的密钥。
 - 上游另提供 Windows 免安装包（约 880 MB）和 Docker 部署，篝火这里采用更小的启动脚本包，同时支持 Windows 与 Mac。
 

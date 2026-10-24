@@ -14,3 +14,8 @@
 *.otf binary
 *.woff binary
 *.woff2 binary
+
+# 篝火：发布包（git archive）不带英文 / 日文说明和英文界面图
+README-en.md export-ignore
+README-ja.md export-ignore
+docs/webui-en.jpg export-ignore
